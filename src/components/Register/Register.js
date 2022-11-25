@@ -1,9 +1,12 @@
 import React from "react";
 import "./Register.scss";
+import Banner from './../../pages/Banner/Banner';
+import BannerImg from "../../assets/2abcd1.jpg"
 
 function Register() {
   return (
     <>
+      <Banner image={BannerImg} title="Register" name=""/>
       <section className="gradient-custom" style={{height: "800px"}}>
         <div className="container py-5 h-100">
           <div className="row justify-content-center align-items-center h-100">

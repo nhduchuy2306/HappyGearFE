@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Banner from './../../pages/Banner/Banner';
+import BannerImg from "../../assets/2abcd1.jpg"
 
 function Login() {
   return (
     <>
+      <Banner image={BannerImg} title="Login" name=""/>
       <section className="mt-5" style={{height: "800px"}}>
         <div className="container" style={{width:"400px"}}>
           <div className="row d-flex justify-content-center align-items-center">
