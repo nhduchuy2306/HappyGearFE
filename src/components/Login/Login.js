@@ -1,60 +1,91 @@
 import React from "react";
-import "./Login.scss";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <>
-      <section className="ftco-section">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-6 text-center mb-5">
-              <h2 className="heading-section">Welcome Back!!</h2>
-            </div>
-          </div>
-          <div className="row justify-content-center">
-            <div className="col-md-6 col-lg-5">
-              <div className="login-wrap p-4 p-md-5">
-                <div className="icon d-flex align-items-center justify-content-center">
-                  <span className="fa fa-user-o"></span>
+      <section className="mt-5" style={{height: "800px"}}>
+        <div className="container" style={{width:"400px"}}>
+          <div className="row d-flex justify-content-center align-items-center">
+            <div className="row d-flex justify-content-center align-items-center">
+              <form>
+                <div className="d-flex align-items-center justify-content-center justify-content-lg-start">
+                  <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-floating mx-1"
+                  >
+                    <i className="fa fa-facebook-f"></i>
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-floating mx-1"
+                  >
+                    <i className="fa fa-twitter"></i>
+                  </button>
+
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-floating mx-1"
+                  >
+                    <i className="fa fa-google"></i>
+                  </button>
                 </div>
-                <h3 className="text-center mb-4">Have an account?</h3>
-                <form action="#" className="login-form">
-                  <div className="form-group">
+
+                <div className="divider d-flex align-items-center my-4">
+                  <p className="text-center fw-bold mx-3 mb-0">Or</p>
+                </div>
+                <div className="form-outline mb-4">
+                  <input
+                    type="email"
+                    id="form3Example3"
+                    className="form-control form-control-lg"
+                    placeholder="Enter a valid email address"
+                  />
+                  <label className="form-label" style={{opacity:"0.7"}} htmlFor="form3Example3">
+                    Email address
+                  </label>
+                </div>
+                <div className="form-outline mb-3">
+                  <input
+                    type="password"
+                    id="form3Example4"
+                    className="form-control form-control-lg"
+                    placeholder="Enter password"
+                  />
+                  <label className="form-label" style={{opacity:"0.7"}} htmlFor="form3Example4">
+                    Password
+                  </label>
+                </div>
+
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="form-check mb-0">
                     <input
-                      type="text"
-                      className="form-control rounded-left"
-                      placeholder="Username"
-                      required
+                      className="form-check-input me-2"
+                      type="checkbox"
+                      value=""
+                      id="form2Example3"
                     />
+                    <label className="form-check-label" htmlFor="form2Example3">
+                      Remember me
+                    </label>
                   </div>
-                  <div className="form-group d-flex">
-                    <input
-                      type="password"
-                      className="form-control rounded-left"
-                      placeholder="Password"
-                      required
-                    />
+                  <a href="#!" className="text-body">
+                    Forgot password?
+                  </a>
+                </div>
+                <div className="text-lg-start mt-4 pt-2 float-right d-flex flex-column justify-content-center align-items-center">
+                  <button type="button" className="btn btn-primary btn-lg w-100">
+                    Login
+                  </button>
+                  <div className="mt-2 float-right">
+                    <span className="mr-2">Don't have an account?</span>
+                    <Link to="/register" className="link-danger">
+                      Register
+                    </Link>
                   </div>
-                  <div className="form-group d-md-flex">
-                    <div className="w-50">
-                      <label className="checkbox-wrap checkbox-primary">
-                        Remember Me
-                        <input type="checkbox" name="rememberMe"/>
-                        <span className="checkmark"></span>
-                      </label>
-                    </div>
-                    <div className="w-50 text-md-right">
-                      <a href="#!">Forgot Password</a>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <button
-                      type="submit"
-                      className="btn btn-primary rounded submit p-3 px-5"
-                    > Login </button>
-                  </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>

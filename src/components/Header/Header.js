@@ -1,10 +1,9 @@
 import React from "react";
-import "./Header.scss";
 import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{borderBottom:"1px solid #d3d6d8"}}>
       <div className="container px-4 px-lg-5">
         <Link className="navbar-brand" to="/">
           <i className="fa fa-cog mr-1" aria-hidden="true"></i>
@@ -28,21 +27,21 @@ function Header() {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
-                About
-              </Link>
-            </li>
             <li className="nav-item dropdown">
               <Link className="nav-link" to="/products">
                 Products
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/policy">
+                Privacy Policy
+              </Link>
+            </li>
           </ul>
-          <Link className="btn btn-outline-dark mr-2" to="/login" type="submit">
+          <Link style={{marginRight:"10px", textDecoration:"none", color: "black"}} to="/login" type="submit">
             Login
           </Link>
-          <Link className="btn btn-outline-dark mr-2" to="/register" type="submit">
+          <Link style={{marginRight:"10px", textDecoration:"none", color: "black"}} to="/register" type="submit">
             Register
           </Link>
           <form className="d-flex">

@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter baseUrl="/happygear">
       <App />
     </BrowserRouter>
   </React.StrictMode>

@@ -4,7 +4,7 @@ import "./Register.scss";
 function Register() {
   return (
     <>
-      <section className="gradient-custom">
+      <section className="gradient-custom" style={{height: "800px"}}>
         <div className="container py-5 h-100">
           <div className="row justify-content-center align-items-center h-100">
             <div className="col-12 col-lg-9 col-xl-7">
@@ -23,7 +23,7 @@ function Register() {
                             id="firstName"
                             className="form-control form-control-lg"
                           />
-                          <label className="form-label" for="firstName">
+                          <label className="form-label" htmlFor="firstName">
                             First Name
                           </label>
                         </div>
@@ -35,7 +35,7 @@ function Register() {
                             id="lastName"
                             className="form-control form-control-lg"
                           />
-                          <label className="form-label" for="lastName">
+                          <label className="form-label" htmlFor="lastName">
                             Last Name
                           </label>
                         </div>
@@ -50,7 +50,7 @@ function Register() {
                             className="form-control form-control-lg"
                             id="birthdayDate"
                           />
-                          <label for="birthdayDate" className="form-label">
+                          <label htmlFor="birthdayDate" className="form-label">
                             Birthday
                           </label>
                         </div>
@@ -67,7 +67,7 @@ function Register() {
                             value="option1"
                             checked
                           />
-                          <label className="form-check-label" for="femaleGender">
+                          <label className="form-check-label" htmlFor="femaleGender">
                             Female
                           </label>
                         </div>
@@ -80,7 +80,7 @@ function Register() {
                             id="maleGender"
                             value="option2"
                           />
-                          <label className="form-check-label" for="maleGender">
+                          <label className="form-check-label" htmlFor="maleGender">
                             Male
                           </label>
                         </div>
@@ -93,7 +93,7 @@ function Register() {
                             id="otherGender"
                             value="option3"
                           />
-                          <label className="form-check-label" for="otherGender">
+                          <label className="form-check-label" htmlFor="otherGender">
                             Other
                           </label>
                         </div>
@@ -108,7 +108,7 @@ function Register() {
                             id="emailAddress"
                             className="form-control form-control-lg"
                           />
-                          <label className="form-label" for="emailAddress">
+                          <label className="form-label" htmlFor="emailAddress">
                             Email
                           </label>
                         </div>
@@ -120,7 +120,7 @@ function Register() {
                             id="phoneNumber"
                             className="form-control form-control-lg"
                           />
-                          <label className="form-label" for="phoneNumber">
+                          <label className="form-label" htmlFor="phoneNumber">
                             Phone Number
                           </label>
                         </div>
