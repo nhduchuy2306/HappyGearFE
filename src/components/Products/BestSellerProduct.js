@@ -1,6 +1,6 @@
 import React from "react";
 import "./BestSellerProduct.scss";
-import ProuducTypeItem from "./ProductType/ProuducTypeItem";
+import ProductItem from "./ProductItem";
 
 function BestSellerProduct() {
   return (
@@ -15,24 +15,24 @@ function BestSellerProduct() {
             </div>
           </div>
           <div className="row featured__filter">
-            <ProuducTypeItem
-              picture="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-              productName="Special Item"
+            <ProductItem
+              picutreUrl="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
+              name="Special Item"
               price="20.00"
             />
-            <ProuducTypeItem
-              picture="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-              productName="Special Item"
+            <ProductItem
+              picutreUrl="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
+              name="Special Item"
               price="20.00"
             />
-            <ProuducTypeItem
-              picture="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-              productName="Special Item"
+            <ProductItem
+              picutreUrl="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
+              name="Special Item"
               price="20.00"
             />
-            <ProuducTypeItem
-              picture="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-              productName="Special Item"
+            <ProductItem
+              picutreUrl="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
+              name="Special Item"
               price="20.00"
             />
           </div>
