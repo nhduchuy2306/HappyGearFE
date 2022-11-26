@@ -40,10 +40,10 @@ function Footer() {
                 <h2><i className="fa fa-address-book mr-3"></i> Contact Us</h2>
                 <div className="footer__widget__social">
                   <a href="/" className="">
-                    <i className="fa fa-facebook" style={{marginRight:"5px"}}></i>
-                    <i className="fa fa-instagram" style={{marginRight:"5px"}}></i>
-                    <i className="fa fa-twitter"style={{marginRight:"5px"}}></i>
-                    <i className="fa fa-google-plus" style={{marginRight:"5px"}}></i>
+                    <i className="fa fa-facebook" style={{marginRight:"20px"}}></i>
+                    <i className="fa fa-instagram" style={{marginRight:"20px"}}></i>
+                    <i className="fa fa-twitter"style={{marginRight:"20px"}}></i>
+                    <i className="fa fa-google-plus" style={{marginRight:"20px"}}></i>
                   </a>
                 </div>
               </div>

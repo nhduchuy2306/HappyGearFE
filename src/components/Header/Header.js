@@ -44,15 +44,15 @@ function Header() {
           <Link style={{marginRight:"10px", textDecoration:"none", color: "black"}} to="/register" type="submit">
             Register
           </Link>
-          <form className="d-flex">
+          <Link className="d-flex" to="/cart" style={{textDecoration:'none'}}>
             <button className="btn btn-outline-dark" type="submit">
-              <i className="fa fa-shopping-cart mr-1" aria-hidden="true"></i>
+              <i className="fa fa-shopping-cart" style={{marginRight:"10px"}} aria-hidden="true"></i>
               Cart
               <span className="badge bg-dark text-white ms-1 rounded-pill">
                 0
               </span>
             </button>
-          </form>
+          </Link>
         </div>
       </div>
     </nav>

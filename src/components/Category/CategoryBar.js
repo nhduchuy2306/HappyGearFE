@@ -1,88 +1,78 @@
 import React from "react";
+import "./CategoryBar.scss"
+import { Link } from 'react-router-dom'
+import Img from '../../assets/backgroundCategory.jpg'
 
 function CategoryBar() {
   return (
-    <section class="hero">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="hero__categories">
-              <div class="hero__categories__all">
-                <i class="fa fa-bars"></i>
-                <span>All departments</span>
+    <section className="hero">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-3">
+            <div className="hero__categories">
+              <div className="hero__categories__all">
+                <i className="fa fa-bars"></i>
+                <span>All Categories</span>
               </div>
               <ul>
                 <li>
-                  <a href="#">Fresh Meat</a>
+                  <a href="!!#">Monitor</a>
                 </li>
                 <li>
-                  <a href="#">Vegetables</a>
+                  <a href="!!#">Mouse</a>
                 </li>
                 <li>
-                  <a href="#">Fruit & Nut Gifts</a>
+                  <a href="!!#">Laptop</a>
                 </li>
                 <li>
-                  <a href="#">Fresh Berries</a>
+                  <a href="!!#">HeadPhone</a>
                 </li>
                 <li>
-                  <a href="#">Ocean Foods</a>
+                  <a href="!#">MousePads</a>
                 </li>
                 <li>
-                  <a href="#">Butter & Eggs</a>
+                  <a href="!#">PC Items</a>
                 </li>
                 <li>
-                  <a href="#">Fastfood</a>
-                </li>
-                <li>
-                  <a href="#">Fresh Onion</a>
-                </li>
-                <li>
-                  <a href="#">Papayaya & Crisps</a>
-                </li>
-                <li>
-                  <a href="#">Oatmeal</a>
-                </li>
-                <li>
-                  <a href="#">Fresh Bananas</a>
+                  <a href="!#">PC For Company</a>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="col-lg-9">
-            <div class="hero__search">
-              <div class="hero__search__form">
-                <form action="#">
-                  <div class="hero__search__categories">
+          <div className="col-lg-9">
+            <div className="hero__search">
+              <div className="hero__search__form">
+                <form action="!#">
+                  <div className="hero__search__categories">
                     All Categories
-                    <span class="arrow_carrot-down"></span>
                   </div>
-                  <input type="text" placeholder="What do yo u need?" />
-                  <button type="submit" class="site-btn">
+                  <input type="text" style={{borderLeft:'1px solid #ebebeb'}} placeholder="What do yo u need?" />
+                  <button type="button" className="site-btn">
                     SEARCH
                   </button>
                 </form>
               </div>
-              <div class="hero__search__phone">
-                <div class="hero__search__phone__icon">
-                  <i class="fa fa-phone"></i>
+              <div className="hero__search__phone">
+                <div className="hero__search__phone__icon">
+                  <i className="fa fa-phone"></i>
                 </div>
-                <div class="hero__search__phone__text">
+                <div className="hero__search__phone__text">
                   <h5>+65 11.188.888</h5>
                   <span>support 24/7 time</span>
                 </div>
               </div>
             </div>
-            <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
-              <div class="hero__text">
-                <span>FRUIT FRESH</span>
+            <div className="hero__item set-bg" style={{ backgroundImage: `url('${Img}')` }}>
+              <div className="hero__text">
+                <span>Happy Gear</span>
                 <h2>
-                  Vegetable <br />
-                  100% Organic
+                  Gear 100% <br />
+                  High Quality
                 </h2>
-                <p>Free Pickup and Delivery Available</p>
-                <a href="#" class="primary-btn">
+                <h4 className="text-black text-uppercase mb-4">Free Pickup and Delivery Available</h4>
+                <Link to="/products" className="btn btn-success">
                   SHOP NOW
-                </a>
+                </Link>
               </div>
             </div>
           </div>

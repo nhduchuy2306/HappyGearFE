@@ -7,10 +7,10 @@ import { Route, Routes } from "react-router-dom";
 import Register from './components/Register/Register';
 import ProductList from './components/Products/ProductList';
 import Policy from "./pages/Policy/Policy"
+import Cart from './components/Cart/Cart';
 
 function App() {
   return (
-    
       <div className="App">
         <div className="header">
           <Header />
@@ -22,13 +22,13 @@ function App() {
             <Route path="register" element={<Register/>} />
             <Route path="products" element={<ProductList/>} />
             <Route path="policy" element={<Policy/>} />
+            <Route path="cart" element={<Cart/>} />
         </Routes>
         </div>
         <div className="footer">
           <Footer />
         </div>
       </div>
-      // <Route path="dashboard" element={<Dashboard/>} />
   );
 }
 
