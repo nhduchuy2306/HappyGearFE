@@ -6,7 +6,7 @@ import logo from "../../assets/pngwing.com.png";
 function Footer() {
   return (
     <>
-      <footer className="footer spad">
+      <footer className="footer">
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-6 col-sm-6">
