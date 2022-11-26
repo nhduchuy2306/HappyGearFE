@@ -8,6 +8,7 @@ import Register from './components/Register/Register';
 import ProductList from './components/Products/ProductList';
 import Policy from "./pages/Policy/Policy"
 import Cart from './components/Cart/Cart';
+import ProductDetail from "./components/Products/ProductDetail/ProductDetail";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
             <Route path="/" element={<MainPage />} exact />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register/>} />
-            <Route path="products" element={<ProductList/>} />
+            <Route path="products" element={<ProductList/>} exact/>
+            <Route path="products/product-detail" element={<ProductDetail/>} />
             <Route path="policy" element={<Policy/>} />
             <Route path="cart" element={<Cart/>} />
         </Routes>

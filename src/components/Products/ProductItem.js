@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 function ProductItem({ picutreUrl, name, price }) {
   return (
@@ -12,9 +13,9 @@ function ProductItem({ picutreUrl, name, price }) {
         </div>
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-center">
-            <a className="btn btn-outline-dark mt-auto" href="#!">
+            <Link className="btn btn-outline-dark mt-auto" to="/products/product-detail">
               View options
-            </a>
+            </Link>
           </div>
         </div>
       </div>
