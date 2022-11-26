@@ -1,22 +1,27 @@
 import React from "react";
 import "./Register.scss";
-import Banner from './../../pages/Banner/Banner';
-import BannerImg from "../../assets/2abcd1.jpg"
+import Banner from "./../../pages/Banner/Banner";
+import BannerImg from "../../assets/2abcd1.jpg";
 
 function Register() {
   return (
     <>
-      <Banner image={BannerImg} title="Register" name=""/>
-      <section className="gradient-custom" style={{height: "800px"}}>
+      <Banner image={BannerImg} title="Register" name="" />
+      <section className="gradient-custom" style={{ height: "800px" }}>
         <div className="container py-5 h-100">
           <div className="row justify-content-center align-items-center h-100">
             <div className="col-12 col-lg-9 col-xl-7">
               <div
                 className="card shadow-2-strong card-registration"
-                style={{borderRadius: "15px"}}
+                style={{ borderRadius: "15px" }}
               >
                 <div className="card-body p-4 p-md-5">
-                  <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style={{color: "#8d448b",fontWeight: "bold"}}>Registration Form</h3>
+                  <h3
+                    className="mb-4 pb-2 pb-md-0 mb-md-5 text-center"
+                    style={{ color: "#8d448b", fontWeight: "bold" }}
+                  >
+                    Registration Form
+                  </h3>
                   <form>
                     <div className="row">
                       <div className="col-md-6 mb-4">
@@ -70,7 +75,10 @@ function Register() {
                             value="option1"
                             checked
                           />
-                          <label className="form-check-label" htmlFor="femaleGender">
+                          <label
+                            className="form-check-label"
+                            htmlFor="femaleGender"
+                          >
                             Female
                           </label>
                         </div>
@@ -83,7 +91,10 @@ function Register() {
                             id="maleGender"
                             value="option2"
                           />
-                          <label className="form-check-label" htmlFor="maleGender">
+                          <label
+                            className="form-check-label"
+                            htmlFor="maleGender"
+                          >
                             Male
                           </label>
                         </div>
@@ -96,7 +107,10 @@ function Register() {
                             id="otherGender"
                             value="option3"
                           />
-                          <label className="form-check-label" htmlFor="otherGender">
+                          <label
+                            className="form-check-label"
+                            htmlFor="otherGender"
+                          >
                             Other
                           </label>
                         </div>
