@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Banner from "../../../pages/Banner/Banner";
 import "./ProductDetail.scss";
 import BannerImg from "../../../assets/2abcd1.jpg";
@@ -8,6 +8,9 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 function ProductDetail() {
   const [count, setCount] = useState(1);
+  const [picutreUrl, setPictureUrl] = useState(
+    "https://technext.github.io/ogani/img/product/details/product-details-1.jpg"
+  );
 
   return (
     <>
@@ -20,44 +23,75 @@ function ProductDetail() {
                 <div className="product__details__pic__item">
                   <img
                     className="product__details__pic__item--large"
-                    src="https://technext.github.io/ogani/img/product/details/product-details-1.jpg"
+                    src={picutreUrl}
                     alt=""
                   />
                 </div>
-                <div className="product__details__pic__slider owl-carousel">
-                  <OwlCarousel
-                    className="owl-theme"
-                    loop
-                    margin={10}
-                    nav
-                    autoplay
+                <OwlCarousel
+                  className="owl-theme"
+                  loop
+                  margin={10}
+                  nav
+                  autoplay
+                  items={5}
+                >
+                  <div
+                    className="item"
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      setPictureUrl(
+                        "https://technext.github.io/ogani/img/product/details/product-details-3.jpg"
+                      )
+                    }
                   >
-                    <div className="item">
-                      <img
-                        src="https://technext.github.io/ogani/img/product/details/product-details-3.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="item">
-                      <img
-                        src="https://technext.github.io/ogani/img/product/details/product-details-2.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="item">
-                      <img
-                        src="https://technext.github.io/ogani/img/product/details/product-details-5.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="item">
-                      <img
-                        src="https://technext.github.io/ogani/img/product/details/product-details-5.jpg"
-                        alt=""
-                      />
-                    </div>
-                  </OwlCarousel>
-                </div>
+                    <img
+                      src="https://technext.github.io/ogani/img/product/details/product-details-3.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div
+                    className="item"
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      setPictureUrl(
+                        "https://technext.github.io/ogani/img/product/details/product-details-2.jpg"
+                      )
+                    }
+                  >
+                    <img
+                      src="https://technext.github.io/ogani/img/product/details/product-details-2.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div
+                    className="item"
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      setPictureUrl(
+                        "https://technext.github.io/ogani/img/product/details/product-details-5.jpg"
+                      )
+                    }
+                  >
+                    <img
+                      src="https://technext.github.io/ogani/img/product/details/product-details-5.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div
+                    className="item"
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      setPictureUrl(
+                        "https://technext.github.io/ogani/img/product/details/product-details-5.jpg"
+                      )
+                    }
+                  >
+                    <img
+                      src="https://technext.github.io/ogani/img/product/details/product-details-5.jpg"
+                      alt=""
+                    />
+                  </div>
+                </OwlCarousel>
               </div>
             </div>
             <div className="col-lg-6 col-md-6">
@@ -82,9 +116,23 @@ function ProductDetail() {
                 <div className="product__details__quantity">
                   <div className="quantity">
                     <div className="pro-qty">
-                      <span className="noselect" style={{cursor:'pointer'}} onClick={()=>(count<=1 )?setCount(1):setCount(count-1)}>-</span>
+                      <span
+                        className="noselect"
+                        style={{ cursor: "pointer" }}
+                        onClick={() =>
+                          count <= 1 ? setCount(1) : setCount(count - 1)
+                        }
+                      >
+                        -
+                      </span>
                       <input type="text" value={count} />
-                      <span className="noselect" style={{cursor:'pointer'}} onClick={()=>setCount(count+1)}>+</span>
+                      <span
+                        className="noselect"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => setCount(count + 1)}
+                      >
+                        +
+                      </span>
                     </div>
                   </div>
                 </div>
