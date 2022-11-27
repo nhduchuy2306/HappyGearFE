@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseUrl: "https://api.ezfrontend.com",
+  baseUrl: "http://localhost:8080/happygear/api",
   headers: {
     "Content-Type": "application/json",
   },

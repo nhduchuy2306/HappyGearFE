@@ -1,16 +1,23 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 function User() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/happygear/api/users")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        console.log(data);
-      });
+    axios.get("http://localhost:8080/happygear/api/users")
+      .then((res)=>{
+        setData(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }, []);
+
+  const handleSubmit = () => {
+    
+  }
 
   return (
     <div className="container">
@@ -29,7 +36,7 @@ function User() {
                 placeholder="Search........"
               />
             </div>
-            <button type="submit" className="btn btn-primary mb-2">
+            <button type="submit" className="btn btn-primary mb-2" onClick={handleSubmit}>
               Search
             </button>
           </form>
