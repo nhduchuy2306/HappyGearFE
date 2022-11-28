@@ -46,7 +46,7 @@ function CategoryBar() {
                   <div className="hero__search__categories">
                     All Categories
                   </div>
-                  <input type="text" style={{borderLeft:'1px solid #ebebeb'}} placeholder="What do yo u need?" />
+                  <input type="text" style={{borderLeft:'1px solid #ebebeb'}} placeholder="What do you need?" />
                   <button type="button" className="site-btn">
                     SEARCH
                   </button>
