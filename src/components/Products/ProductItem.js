@@ -13,7 +13,7 @@ function ProductItem({ picutreUrl, name, price }) {
         </div>
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-center">
-            <Link className="btn btn-outline-dark mt-auto" to="/products/product-detail">
+            <Link className="btn btn-outline-dark mt-auto" to="/happygear/products/product-detail">
               View options
             </Link>
           </div>

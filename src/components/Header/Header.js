@@ -8,7 +8,7 @@ function Header() {
       style={{ borderBottom: "1px solid #d3d6d8" }}
     >
       <div className="container px-4 px-lg-5">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/happygear">
           <i className="fa fa-cog mr-5" aria-hidden="true"></i>
           <span style={{ marginLeft:'10px'}}>HappyGear</span>
         </Link>
@@ -26,17 +26,17 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link className="nav-link active" aria-current="page" to="/happygear">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/products">
+              <Link className="nav-link" to="/happygear/products">
                 Products
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/policy">
+              <Link className="nav-link" to="/happygear/policy">
                 Privacy Policy
               </Link>
             </li>
@@ -47,7 +47,7 @@ function Header() {
               textDecoration: "none",
               color: "black",
             }}
-            to="/login"
+            to="/happygear/login"
             type="submit"
           >
             Login
@@ -58,14 +58,14 @@ function Header() {
               textDecoration: "none",
               color: "black",
             }}
-            to="/register"
+            to="/happygear/register"
             type="submit"
           >
             Register
           </Link>
           <Link
             className="d-flex"
-            to="/cart"
+            to="/happygear/cart"
             style={{ textDecoration: "none" }}
           >
             <button className="btn btn-outline-dark" type="submit">

@@ -87,7 +87,7 @@ function Cart() {
                     Total <span>$454.98</span>
                   </li>
                 </ul>
-                <Link to="/checkout" className="btn btn-info primary-btn">
+                <Link to="/happygear/checkout" className="btn btn-info primary-btn">
                   PROCEED TO CHECKOUT
                 </Link>
               </div>

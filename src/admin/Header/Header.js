@@ -9,7 +9,7 @@ function Header() {
     <>
       <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         {/* <!-- Navbar Brand--> */}
-        <Link className="navbar-brand ps-3 text-center" to="/">
+        <Link className="navbar-brand ps-3 text-center" to="/admin">
           <i className="fa fa-user" style={{ marginRight: "10px" }}></i>
           Admin
         </Link>
@@ -17,7 +17,7 @@ function Header() {
           <Link
             className="navbar-brand text-center"
             style={{ pointer: "cursor" }}
-            to="/user"
+            to="/admin/user"
           >
             <i className="fa fa-table" style={{ marginRight: "10px" }}></i>
             User
@@ -25,7 +25,7 @@ function Header() {
           <Link
             className="navbar-brand text-center"
             style={{ pointer: "cursor" }}
-            to="/product"
+            to="/admin/product"
           >
             <i className="fa fa-table" style={{ marginRight: "10px" }}></i>
             Product
