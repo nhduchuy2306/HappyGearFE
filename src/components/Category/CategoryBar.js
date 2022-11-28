@@ -19,10 +19,10 @@ function CategoryBar() {
                   <a href="!!#">Monitor</a>
                 </li>
                 <li>
-                  <a href="!!#">Mouse</a>
+                  <a href="!#">Mouse</a>
                 </li>
                 <li>
-                  <a href="!!#">Laptop</a>
+                  <a href="!#">Laptop</a>
                 </li>
                 <li>
                   <a href="!!#">HeadPhone</a>

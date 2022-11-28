@@ -5,7 +5,7 @@ function Header() {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light bg-light"
-      style={{ borderBottom: "1px solid #d3d6d8" }}
+      style={{ borderBottom: "1px solid #d3d6d8", padding:'15px' }}
     >
       <div className="container px-4 px-lg-5">
         <Link className="navbar-brand" to="/happygear">

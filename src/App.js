@@ -33,6 +33,7 @@ function App() {
         <Routes>
           {/* This is router for client */}
           <Route path="happygear" element={<MainPage />} exact />
+          <Route path="" element={<MainPage />} exact />
           <Route path="happygear/login" element={<Login />} />
           <Route path="happygear/register" element={<Register />} />
           <Route path="happygear/products" element={<ProductList />} exact />
