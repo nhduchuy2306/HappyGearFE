@@ -1,22 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CategoryBar.scss"
 import { Link } from 'react-router-dom'
 import Img from '../../assets/backgroundCategory.jpg'
 
 function CategoryBar() {
+
+  const [categoryShow, setCategoryShow] = useState(false);
+
   return (
     <section className="hero">
       <div className="container">
         <div className="row">
           <div className="col-lg-3">
             <div className="hero__categories">
-              <div className="hero__categories__all">
+              <div className="hero__categories__all" onClick={() => setCategoryShow(!categoryShow)}>
                 <i className="fa fa-bars"></i>
                 <span>All Categories</span>
               </div>
+              {categoryShow && 
               <ul>
                 <li>
-                  <a href="!!#">Monitor</a>
+                  <a href="!#">Monitor</a>
                 </li>
                 <li>
                   <a href="!#">Mouse</a>
@@ -25,7 +29,7 @@ function CategoryBar() {
                   <a href="!#">Laptop</a>
                 </li>
                 <li>
-                  <a href="!!#">HeadPhone</a>
+                  <a href="!#">HeadPhone</a>
                 </li>
                 <li>
                   <a href="!#">MousePads</a>
@@ -37,20 +41,16 @@ function CategoryBar() {
                   <a href="!#">PC For Company</a>
                 </li>
               </ul>
+              }
             </div>
           </div>
           <div className="col-lg-9">
             <div className="hero__search">
               <div className="hero__search__form">
-                <form action="!#">
-                  <div className="hero__search__categories">
-                    All Categories
-                  </div>
-                  <input type="text" style={{borderLeft:'1px solid #ebebeb'}} placeholder="What do you need?" />
+                  <input type="text" placeholder="What do you need?" />
                   <button type="button" className="site-btn">
                     SEARCH
                   </button>
-                </form>
               </div>
               <div className="hero__search__phone">
                 <div className="hero__search__phone__icon">

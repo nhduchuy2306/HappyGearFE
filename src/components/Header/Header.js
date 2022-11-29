@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
+
+  const [headerShow, setHeaderShow] = useState(false);
+
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light bg-light"
@@ -18,12 +21,13 @@ function Header() {
           data-bs-toggle="collapse"
           data-bs-target="#navbarContent"
           aria-controls="navbarContent"
-          aria-expanded="false"
+          aria-expanded="true"
           aria-label="Toggle navigation"
+          onClick={() => setHeaderShow(!headerShow)}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarContent">
+        <div className={headerShow ? "collapse navbar-collapse show" : "collapse navbar-collapse"} id="navbarContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/happygear">

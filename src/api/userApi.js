@@ -1,5 +1,4 @@
 import axiosClient from "./axiosClient";
-import config from "./config/config"
 
 const userApi = {
     getAll(params){
@@ -7,7 +6,7 @@ const userApi = {
         return axiosClient.get(url, {params});
     },
     get(id){
-        const url = `/users/${id}`
+        const url = `/user/${id}`
         return axiosClient.get(url);
     },
     add(data){

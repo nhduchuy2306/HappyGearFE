@@ -23,19 +23,20 @@ function Cart() {
                       <th>Price</th>
                       <th>Quantity</th>
                       <th>Total</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <CartItem 
                         quantity="1"
-                        url="img/cart/cart-1.jpg"
+                        url="https://www.nguyenkim.com/images/detailed/775/10051123-laptop-asus-vivobook-x515ea-ej1046w-i5-1135g7-1.jpg"
                         name="Acer"
                         price="33.00"
                         total="33.00"
                     />
                     <CartItem 
                         quantity="1"
-                        url="img/cart/cart-1.jpg"
+                        url="https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg"
                         name="Asus"
                         price="33.00"
                         total="33.00"
