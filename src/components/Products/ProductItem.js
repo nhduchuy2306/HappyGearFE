@@ -1,25 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom"
 
-function ProductItem({ picutreUrl, name, price }) {
+function ProductItem({list}) {
   return (
-    <div className="col mb-5">
-      <div className="card h-100">
-        <img className="card-img-top" src={picutreUrl} alt="" />
-        <div className="card-body p-4">
-          <div className="text-center">
-            <h5 className="fw-bolder">{name}</h5>${price}
+    list.map(e => (
+      <div key={e?.id} className="col mb-5">
+        <div className="card h-100">
+          <img
+            className="card-img-top"
+            src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
+            alt=""
+          />
+          <div className="card-body p-4">
+            <div className="text-center">
+              <h5 className="fw-bolder">{e?.name}</h5>
+              {e?.id}
+            </div>
           </div>
-        </div>
-        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-          <div className="text-center">
-            <Link className="btn btn-outline-dark mt-auto" to="/happygear/products/product-detail">
-              View options
-            </Link>
+          <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div className="text-center">
+              <a className="btn btn-outline-dark mt-auto" href="#!">
+                View options
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    ))
   );
 }
 
