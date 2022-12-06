@@ -2,6 +2,33 @@ import React from "react";
 import "./BestSellerProduct.scss";
 import ProductItem from "./ProductItem";
 
+const list = [
+  {
+    id: 1,
+    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
+    name: "Special Item",
+    price: "20.00",
+  },
+  {
+    id: 2,
+    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
+    name: "Special Item",
+    price: "20.00",
+  },
+  {
+    id: 3,
+    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
+    name: "Special Item",
+    price: "20.00",
+  },
+  {
+    id: 4,
+    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
+    name: "Special Item",
+    price: "20.00",
+  },
+];
+
 function BestSellerProduct() {
   return (
     <>
@@ -15,26 +42,7 @@ function BestSellerProduct() {
             </div>
           </div>
           <div className="row featured__filter">
-            <ProductItem
-              picutreUrl="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-              name="Special Item"
-              price="20.00"
-            />
-            <ProductItem
-              picutreUrl="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-              name="Special Item"
-              price="20.00"
-            />
-            <ProductItem
-              picutreUrl="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-              name="Special Item"
-              price="20.00"
-            />
-            <ProductItem
-              picutreUrl="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-              name="Special Item"
-              price="20.00"
-            />
+            <ProductItem list={list} />
           </div>
         </div>
       </section>

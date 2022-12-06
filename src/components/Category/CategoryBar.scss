@@ -74,11 +74,18 @@
 }
 
 .hero__search__form {
-	width: 516px;
+	width: 70%;
 	height: 50px;
-	border: 1px solid #ebebeb;
 	position: relative;
 	float: left;
+	display:flex;
+
+	input {
+		width: 100%;
+		padding: 10px;
+		margin-right: 10px;
+		border-radius: 10px;
+	}
 
     form .hero__search__categories {
         width: 30%;
@@ -119,13 +126,6 @@
         ::placeholder {
             color: #b2b2b2;
         }
-    }
-
-    form button {
-        position: absolute;
-        right: 0;
-        top: -1px;
-        height: 50px;
     }
 }
 

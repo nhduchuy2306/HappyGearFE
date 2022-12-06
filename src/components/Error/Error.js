@@ -15,7 +15,7 @@ function Error() {
                     <h1 className="display-1">ERROR</h1>
                     <p className="lead">Something Get Error</p>
                     <Link to="/">
-                      <i className="fas fa-arrow-left me-1"></i>
+                      <i className="fa fa-arrow-left me-1"></i>
                       Return To HomePage
                     </Link>
                   </div>

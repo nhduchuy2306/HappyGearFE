@@ -48,7 +48,7 @@ function CategoryBar() {
             <div className="hero__search">
               <div className="hero__search__form">
                   <input type="text" placeholder="What do you need?" />
-                  <button type="button" className="site-btn">
+                  <button type="button" className="site-btn btn btn-info">
                     SEARCH
                   </button>
               </div>

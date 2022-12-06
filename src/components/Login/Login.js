@@ -1,12 +1,56 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Banner from './../../pages/Banner/Banner';
 import BannerImg from "../../assets/2abcd1.jpg"
+import { useState } from "react";
+import axios from "axios";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { useContext } from "react";
+import { LoginContext } from "../../context/LoginContext";
 
 function Login() {
+
+  const [username,setUsername] = useState()
+  const [password,setPassword] = useState()
+  const [isLoading, setIsLoading] = useState(false)
+
+  const { setIsLogin } = useContext(LoginContext)
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    setIsLoading(true)
+    axios.post("http://localhost:8080/happygear/api/users/login",{
+        username: username,
+        password: password
+    })
+    .then((response) => {
+      console.log(response);
+      if(response?.status === 200) {
+        sessionStorage.setItem("UserLogin",response.data.userName)
+        setTimeout(() =>{
+          navigate("/");
+          setIsLogin(true);
+        },2000)
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+    e.preventDefault();
+  }
+
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value)
+  }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value)
+  }
+
   return (
     <>
       <Banner image={BannerImg} title="Login" name=""/>
+      {isLoading? <LoadingSpinner/> :
       <section className="mt-5" style={{height: "800px"}}>
         <div className="container" style={{width:"400px"}}>
           <div className="row d-flex justify-content-center align-items-center">
@@ -43,10 +87,12 @@ function Login() {
                     type="email"
                     id="form3Example3"
                     className="form-control form-control-lg"
-                    placeholder="Enter a valid email address"
+                    placeholder="Enter a username"
+                    onChange={handleUsernameChange}
+                    value={username}
                   />
                   <label className="form-label" style={{opacity:"0.7"}} htmlFor="form3Example3">
-                    Email address
+                    Username
                   </label>
                 </div>
                 <div className="form-outline mb-3">
@@ -55,6 +101,8 @@ function Login() {
                     id="form3Example4"
                     className="form-control form-control-lg"
                     placeholder="Enter password"
+                    onChange={handlePasswordChange}
+                    value={password}
                   />
                   <label className="form-label" style={{opacity:"0.7"}} htmlFor="form3Example4">
                     Password
@@ -78,7 +126,7 @@ function Login() {
                   </a>
                 </div>
                 <div className="text-lg-start mt-4 pt-2 float-right d-flex flex-column justify-content-center align-items-center">
-                  <button type="button" className="btn btn-primary btn-lg w-100">
+                  <button type="button" className="btn btn-primary btn-lg w-100" onClick={handleLogin}>
                     Login
                   </button>
                   <div className="mt-2 float-right">
@@ -93,6 +141,7 @@ function Login() {
           </div>
         </div>
       </section>
+      }
     </>
   );
 }

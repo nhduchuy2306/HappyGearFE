@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import "./Cart.scss";
 
-function CartItem({ quantity, url, name, price, total }) {
+function CartItem({ quantity, url, name, price, total, callback }) {
   const [count, setCount] = useState(quantity);
 
   const handleCountChange = (event) => {
     setCount(event.target.value);
   };
 
+  const handleDelete = () => {
+    console.log("click");
+  }
+
   return (
     <>
       <tr>
-        <td className="shoping__cart__item d-flex align-items-center">
+        <td className="d-flex align-items-center">
           <img className="img-responsive" style={{marginRight:'40px'}} width="200" src={url} alt="" />
           <h5>{name}</h5>
         </td>
@@ -22,9 +26,14 @@ function CartItem({ quantity, url, name, price, total }) {
               <span
                 style={{ cursor: "pointer" }}
                 onClick={() => {
-                  parseInt(count) <= 1
-                    ? setCount(1)
-                    : setCount(parseInt(count) - 1)
+                  if(parseInt(count) <= 1){
+                    setCount(1);
+                    callback(1*price);
+                  }
+                  else{
+                    setCount(parseInt(count)-1);
+                    callback((parseInt(count)-1)*price);
+                  }
                 }}
               >
                 -
@@ -32,7 +41,10 @@ function CartItem({ quantity, url, name, price, total }) {
               <input type="text" value={count} onChange={handleCountChange} />
               <span
                 style={{ cursor: "pointer" }}
-                onClick={() => setCount(parseInt(count) + 1)}
+                onClick={() => {
+                  setCount(parseInt(count) + 1);
+                  callback((parseInt(count) + 1)*price);
+                }}
               >
                 +
               </span>
@@ -41,7 +53,7 @@ function CartItem({ quantity, url, name, price, total }) {
         </td>
         <td className="shoping__cart__total">{price*count}</td>
         <td className="" style={{cursor:"pointer"}}>
-          <span className="fa fa-times"></span>
+          <span className="fa fa-times" onClick={handleDelete}></span>
         </td>
       </tr>
     </>

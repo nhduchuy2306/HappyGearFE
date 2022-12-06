@@ -1,12 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Banner from "../../pages/Banner/Banner";
 import BannerImg from "../../assets/2abcd1.jpg";
 import "./Cart.scss";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 
+const cart = [
+  {
+    quantity: "1",
+    url: "https://www.nguyenkim.com/images/detailed/775/10051123-laptop-asus-vivobook-x515ea-ej1046w-i5-1135g7-1.jpg",
+    name: "Acer",
+    price: "33.00",
+    total: "33.00",
+  },
+  {
+    quantity: "1",
+    url: "https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg",
+    name: "Asus",
+    price: "33.00",
+    total: "33.00",
+  },
+  {
+    quantity: "1",
+    url: "https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg",
+    name: "Asus",
+    price: "40.00",
+    total: "40.00",
+  },
+];
+
 function Cart() {
-  
+
+  const [total, setTotal] = useState(0)
+
+  const callbackTotal = (totalItem) => {
+    console.log(">>>>>>>>>>>>>>>> Total price in cart "+totalItem + total)
+    setTotal(parseInt(total+totalItem));
+  }
 
   return (
     <>
@@ -27,20 +57,17 @@ function Cart() {
                     </tr>
                   </thead>
                   <tbody>
-                    <CartItem 
-                        quantity="1"
-                        url="https://www.nguyenkim.com/images/detailed/775/10051123-laptop-asus-vivobook-x515ea-ej1046w-i5-1135g7-1.jpg"
-                        name="Acer"
-                        price="33.00"
-                        total="33.00"
-                    />
-                    <CartItem 
-                        quantity="1"
-                        url="https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg"
-                        name="Asus"
-                        price="33.00"
-                        total="33.00"
-                    />
+                    {cart.map((data, index) => (
+                      <CartItem
+                        key={index}
+                        quantity={data.quantity}
+                        url={data.url}
+                        name={data.name}
+                        price={data.price}
+                        total={data.total}
+                        callback={callbackTotal}
+                      />
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -82,13 +109,16 @@ function Cart() {
                 <h5>Cart Total</h5>
                 <ul>
                   <li>
-                    Subtotal <span>$454.98</span>
+                    Subtotal <span>{total}</span>
                   </li>
                   <li>
-                    Total <span>$454.98</span>
+                    Tax <span>10%</span>
+                  </li>
+                  <li>
+                    Total <span>{total*1.1}</span>
                   </li>
                 </ul>
-                <Link to="/happygear/checkout" className="btn btn-info primary-btn">
+                <Link to="/checkout" className="btn btn-info primary-btn">
                   PROCEED TO CHECKOUT
                 </Link>
               </div>
