@@ -7,6 +7,8 @@ import axios from "axios";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { useContext } from "react";
 import { LoginContext } from "../../context/LoginContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
 
@@ -14,7 +16,7 @@ function Login() {
   const [password,setPassword] = useState()
   const [isLoading, setIsLoading] = useState(false)
 
-  const { setIsLogin } = useContext(LoginContext)
+  const { setIsLogin, setIsAdmin } = useContext(LoginContext)
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -26,11 +28,21 @@ function Login() {
     .then((response) => {
       console.log(response);
       if(response?.status === 200) {
-        sessionStorage.setItem("UserLogin",response.data.userName)
-        setTimeout(() =>{
-          navigate("/");
-          setIsLogin(true);
-        },2000)
+        sessionStorage.setItem("UserLogin",JSON.stringify(response.data))
+        notifyLogin()
+        if(response.data.roleId===1) {
+          setTimeout(() => {
+            navigate("/admin");
+            setIsAdmin(true);
+            setIsLogin(true);
+          },2000)
+        }
+        else{
+          setTimeout(() => {
+            navigate("/");
+            setIsLogin(true);
+          },2000)
+        }
       }
     })
     .catch((err) => {
@@ -46,16 +58,39 @@ function Login() {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
   }
+  const notifyLogin = () =>
+    toast.success("Login successfully!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Banner image={BannerImg} title="Login" name=""/>
       {isLoading? <LoadingSpinner/> :
       <section className="mt-5" style={{height: "800px"}}>
         <div className="container" style={{width:"400px"}}>
           <div className="row d-flex justify-content-center align-items-center">
             <div className="row d-flex justify-content-center align-items-center">
-              <form>
+              <form onSubmit={handleLogin}>
                 <div className="d-flex align-items-center justify-content-center justify-content-lg-start">
                   <p className="lead fw-normal mb-0 me-3">Sign in with</p>
                   <button
@@ -84,8 +119,8 @@ function Login() {
                 </div>
                 <div className="form-outline mb-4">
                   <input
-                    type="email"
-                    id="form3Example3"
+                    type="text"
+                    id="form3Examle3"
                     className="form-control form-control-lg"
                     placeholder="Enter a username"
                     onChange={handleUsernameChange}
@@ -126,7 +161,7 @@ function Login() {
                   </a>
                 </div>
                 <div className="text-lg-start mt-4 pt-2 float-right d-flex flex-column justify-content-center align-items-center">
-                  <button type="button" className="btn btn-primary btn-lg w-100" onClick={handleLogin}>
+                  <button type="submit" className="btn btn-primary btn-lg w-100">
                     Login
                   </button>
                   <div className="mt-2 float-right">

@@ -11,11 +11,11 @@ import { LoginProvider } from "./context/LoginContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <LoginProvider>
       <BrowserRouter>
           <App />
       </BrowserRouter>
     </LoginProvider>
-  // </React.StrictMode>
+  </React.StrictMode>
 );

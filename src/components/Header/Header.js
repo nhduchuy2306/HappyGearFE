@@ -2,11 +2,25 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../../context/LoginContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Header() {
   const [headerShow, setHeaderShow] = useState(false);
   const { isLogin, setIsLogin } = useContext(LoginContext);
   const navigate = useNavigate();
+
+  const notifyLogout = () =>
+    toast.success("Logout successfully!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   return (
     <nav
@@ -55,7 +69,7 @@ function Header() {
               </Link>
             </li>
           </ul>
-          {!isLogin && (
+          {(!isLogin || isLogin===null) && (
             <Link
               style={{
                 marginRight: "10px",
@@ -67,7 +81,7 @@ function Header() {
               Login
             </Link>
           )}
-          {!isLogin && (
+          {(!isLogin || isLogin===null) && (
             <Link
               style={{
                 marginRight: "10px",
@@ -91,6 +105,7 @@ function Header() {
               onClick={()=> {
                 setIsLogin(false)
                 sessionStorage.removeItem("UserLogin")
+                notifyLogout()
                 setTimeout(() =>{
                   navigate("/");
                 },1000)
@@ -118,6 +133,18 @@ function Header() {
           </Link>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </nav>
   );
 }
