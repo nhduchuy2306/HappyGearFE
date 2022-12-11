@@ -30,6 +30,11 @@ function ProductList() {
       .catch((error) => {
         console.log(error);
       });
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
   }, [page]);
 
   return (
@@ -43,10 +48,13 @@ function ProductList() {
               height: "100vh",
             }}
           >
-            <Filter />
+            <Filter  />
           </div>
           <div className="col-md-9">
             <div>Search bar</div>
+            <div className="row">
+              <ProductItem list={list} />
+            </div>
             <Stack spacing={2} sx={{display: 'flex', alignItems: 'center'}}>
               <Pagination
                 count={totalPage}
@@ -54,9 +62,6 @@ function ProductList() {
                 onChange={handleChange}
               />
             </Stack>
-            <div className="row">
-              <ProductItem list={list} />
-            </div>
           </div>
         </div>
       </section>

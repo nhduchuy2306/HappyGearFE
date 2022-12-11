@@ -103,7 +103,7 @@ function Filter() {
         </Box>
         <div>
           <p style={{ color: "red", fontWeight: "bold", fontSize: 20 }}>
-            {value[0]} VND - {value[1]} VND
+            <span>{value[0]} VNĐ</span> - <span>{value[1]} VNĐ</span>
           </p>
         </div>
       </div>
