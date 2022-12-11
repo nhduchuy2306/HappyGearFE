@@ -5,27 +5,27 @@ import ProductItem from "./ProductItem";
 
 const list = [
   {
-    id: 1,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
+    productId: 1,
+    picture: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
+    productName: "Special Item",
     price: "20.00",
   },
   {
-    id: 2,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
+    productId: 2,
+    picture: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
+    productName: "Special Item",
     price: "20.00",
   },
   {
-    id: 3,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
+    productId: 3,
+    picture: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
+    productName: "Special Item",
     price: "20.00",
   },
   {
-    id: 4,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
+    productId: 4,
+    picture: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
+    productName: "Special Item",
     price: "20.00",
   },
 ];
@@ -43,7 +43,7 @@ function LatestProduct() {
             </div>
           </div>
           <div className="row featured__filter">
-            <ProductItem list={list} />
+            <ProductItem list={list} number={4} />
           </div>
         </div>
       </section>

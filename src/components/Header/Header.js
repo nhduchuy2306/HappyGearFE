@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { LoginContext } from "../../context/LoginContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Header() {
   const [headerShow, setHeaderShow] = useState(false);
-  const { isLogin, setIsLogin } = useContext(LoginContext);
   const navigate = useNavigate();
 
   const notifyLogout = () =>
@@ -69,7 +66,7 @@ function Header() {
               </Link>
             </li>
           </ul>
-          {(!isLogin || isLogin===null) && (
+          {(localStorage.getItem("UserLogin")===null) && (
             <Link
               style={{
                 marginRight: "10px",
@@ -81,7 +78,7 @@ function Header() {
               Login
             </Link>
           )}
-          {(!isLogin || isLogin===null) && (
+          {(localStorage.getItem("UserLogin")===null) && (
             <Link
               style={{
                 marginRight: "10px",
@@ -93,7 +90,7 @@ function Header() {
               Register
             </Link>
           )}
-          {isLogin && (
+          {localStorage.getItem("UserLogin")!==null && (
             <button
               style={{
                 marginRight: "10px",
@@ -103,8 +100,7 @@ function Header() {
                 backgroundColor: "#f8f9fa"
               }}
               onClick={()=> {
-                setIsLogin(false)
-                sessionStorage.removeItem("UserLogin")
+                window.localStorage.removeItem("UserLogin")
                 notifyLogout()
                 setTimeout(() =>{
                   navigate("/");

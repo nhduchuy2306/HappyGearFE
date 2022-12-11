@@ -20,6 +20,10 @@ const productApi = {
     remove(id){
         const url = `/products/${id}`
         return axiosClient.delete(url);
+    },
+    getByProductId(id){
+        const url = `/pictures/productPic/${id}`
+        return axiosClient.get(url);
     }
 };
 

@@ -1,74 +1,62 @@
+import { useEffect, useState } from "react";
 import Banner from "../../pages/Banner/Banner";
 import ProductItem from "./ProductItem";
-import BannerImg from "../../assets/2abcd1.jpg"
-// import { useEffect, useState } from 'react'
-// import axios from "axios";
+import BannerImg from "../../assets/2abcd1.jpg";
+import axios from "axios";
+import Filter from "../Filter/Filter";
 
-const list = [
-  {
-    id: 1,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
-    price: "20.00",
-  },
-  {
-    id: 2,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
-    price: "20.00",
-  },
-  {
-    id: 3,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
-    price: "20.00",
-  },
-  {
-    id: 4,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
-    price: "20.00",
-  },
-  {
-    id: 5,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
-    price: "20.00",
-  },
-  {
-    id: 6,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
-    price: "20.00",
-  },
-  {
-    id: 7,
-    image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-    name: "Special Item",
-    price: "20.00",
-  },
-];
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 function ProductList() {
+  const [list, setList] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState();
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
-  // const [list, setList] = useState([])
-
-  // useEffect(() => {
-  //   axios({
-  //     method: 'get',
-  //     url: 'https://jsonplaceholder.typicode.com/users',
-  //   }).then(respone => setList(respone.data))
-  // },[])
-
-  // console.log(list)
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/happygear/api/products/page",{
+        params:{
+          p:page-1
+        }
+      })
+      .then((response) => {
+        setList(response.data[0]);
+        setTotalPage(response.data[1]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [page]);
 
   return (
     <>
       <Banner image={BannerImg} name="Shopping" title="" />
-      <section className="py-5 d-flex">
-        <div className="container px-4 px-lg-5 mt-5">
-          <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
-              <ProductItem list={list} />          
+      <section className="container py-5">
+        <div className="row">
+          <div
+            className="col-md-3"
+            style={{
+              height: "100vh",
+            }}
+          >
+            <Filter />
+          </div>
+          <div className="col-md-9">
+            <div>Search bar</div>
+            <Stack spacing={2} sx={{display: 'flex', alignItems: 'center'}}>
+              <Pagination
+                count={totalPage}
+                page={page}
+                onChange={handleChange}
+              />
+            </Stack>
+            <div className="row">
+              <ProductItem list={list} />
+            </div>
           </div>
         </div>
       </section>

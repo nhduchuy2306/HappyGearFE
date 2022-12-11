@@ -1,10 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseUrl: "http://localhost:8080/happygear/api",
-  // headers: {
-  //   "Content-Type": "application/json",
-  // },
+  baseUrl: 'http://localhost:8080/happygear/api',
 });
 
 // Add a request interceptor
