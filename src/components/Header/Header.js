@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { CartContext } from "../../context/CartContext";
 
 function Header() {
   const [headerShow, setHeaderShow] = useState(false);
   const navigate = useNavigate();
+
+  const { cart } = useContext(CartContext);
 
   const notifyLogout = () =>
     toast.success("Logout successfully!", {
@@ -123,7 +127,7 @@ function Header() {
               ></i>
               Cart
               <span className="badge bg-dark text-white ms-1 rounded-pill">
-                0
+                {cart.length > 0 ? cart.length-1:0}
               </span>
             </button>
           </Link>

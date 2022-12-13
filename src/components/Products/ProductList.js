@@ -18,7 +18,7 @@ function ProductList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/happygear/api/products/page",{
+      .get("http://localhost:8080/happygear/api/products/",{
         params:{
           p:page-1
         }
@@ -48,7 +48,7 @@ function ProductList() {
               height: "100vh",
             }}
           >
-            <Filter  />
+            <Filter />
           </div>
           <div className="col-md-9">
             <div>Search bar</div>

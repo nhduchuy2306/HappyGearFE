@@ -4,38 +4,42 @@ import BannerImg from "../../assets/2abcd1.jpg";
 import "./Cart.scss";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-const cart = [
-  {
-    quantity: "1",
-    url: "https://www.nguyenkim.com/images/detailed/775/10051123-laptop-asus-vivobook-x515ea-ej1046w-i5-1135g7-1.jpg",
-    name: "Acer",
-    price: "33.00",
-    total: "33.00",
-  },
-  {
-    quantity: "1",
-    url: "https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg",
-    name: "Asus",
-    price: "33.00",
-    total: "33.00",
-  },
-  {
-    quantity: "1",
-    url: "https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg",
-    name: "Asus",
-    price: "40.00",
-    total: "40.00",
-  },
-];
+// const cart = [
+//   {
+//     quantity: "1",
+//     url: "https://www.nguyenkim.com/images/detailed/775/10051123-laptop-asus-vivobook-x515ea-ej1046w-i5-1135g7-1.jpg",
+//     name: "Acer",
+//     price: "33.00",
+//     total: "33.00",
+//   },
+//   {
+//     quantity: "1",
+//     url: "https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg",
+//     name: "Asus",
+//     price: "33.00",
+//     total: "33.00",
+//   },
+//   {
+//     quantity: "1",
+//     url: "https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg",
+//     name: "Asus",
+//     price: "40.00",
+//     total: "40.00",
+//   },
+// ];
 
 function Cart() {
 
   const [total, setTotal] = useState(0)
 
+  const { cart } = useContext(CartContext)
+
   const callbackTotal = (totalItem) => {
-    console.log(">>>>>>>>>>>>>>>> Total price in cart "+totalItem + total)
-    setTotal(parseInt(total+totalItem));
+    console.log(">>>>>>>>>>>>>>>> Total price in cart " + totalItem + total)
+    setTotal(parseInt(total + totalItem));
   }
 
   return (
@@ -57,14 +61,14 @@ function Cart() {
                     </tr>
                   </thead>
                   <tbody>
-                    {cart.map((data, index) => (
+                    {cart.slice(1).map((data, index) => (
                       <CartItem
                         key={index}
+                        productId = {data.productId}
                         quantity={data.quantity}
-                        url={data.url}
-                        name={data.name}
+                        url={data.picture}
+                        name={data.productName}
                         price={data.price}
-                        total={data.total}
                         callback={callbackTotal}
                       />
                     ))}
@@ -115,7 +119,7 @@ function Cart() {
                     Tax <span>10%</span>
                   </li>
                   <li>
-                    Total <span>{total*1.1}</span>
+                    Total <span>{total * 1.1}</span>
                   </li>
                 </ul>
                 <Link to="/checkout" className="btn btn-info primary-btn">

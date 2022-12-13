@@ -7,15 +7,18 @@ import "font-awesome/css/font-awesome.min.css";
 // import "bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { LoginProvider } from "./context/LoginContext";
+import { CartProvider } from "./context/CartContext";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <LoginProvider>
-      <BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
           <App />
-      </BrowserRouter>
+        </BrowserRouter>
+      </CartProvider>
     </LoginProvider>
   </React.StrictMode>
 );

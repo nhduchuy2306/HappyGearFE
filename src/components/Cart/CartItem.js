@@ -1,15 +1,27 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import "./Cart.scss";
 
-function CartItem({ quantity, url, name, price, total, callback }) {
+function CartItem({ productId, quantity, url, name, price, callback }) {
   const [count, setCount] = useState(quantity);
+
+  const { cart, setCart } = useContext(CartContext)
 
   const handleCountChange = (event) => {
     setCount(event.target.value);
   };
 
-  const handleDelete = () => {
-    console.log("click");
+  const handleDelete = (event, id) => {
+    console.log("click " + id);
+    const item = cart.filter(product => product.productId !== id)
+
+    if (item.length > 0) {
+      setCart(existing => [...item])
+      console.log(">>>"+ cart)
+    }
+
+    window.localStorage.setItem("localCart",JSON.stringify(cart))
   }
 
   return (
@@ -19,7 +31,7 @@ function CartItem({ quantity, url, name, price, total, callback }) {
           <img className="img-responsive" style={{marginRight:'40px'}} width="200" src={url} alt="" />
           <h5>{name}</h5>
         </td>
-        <td className="shoping__cart__price">${price}</td>
+        <td className="shoping__cart__price">{price} VNĐ</td>
         <td className="shoping__cart__quantity">
           <div className="quantity">
             <div className="pro-qty d-flex align-items-center justify-content-center m-auto">
@@ -51,9 +63,9 @@ function CartItem({ quantity, url, name, price, total, callback }) {
             </div>
           </div>
         </td>
-        <td className="shoping__cart__total">{price*count}</td>
+        <td className="shoping__cart__total">{price*count} VNĐ</td>
         <td className="" style={{cursor:"pointer"}}>
-          <span className="fa fa-times" onClick={handleDelete}></span>
+          <span className="fa fa-times" onClick={(event) => handleDelete(event,productId)}></span>
         </td>
       </tr>
     </>
