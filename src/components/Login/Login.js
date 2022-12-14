@@ -76,8 +76,8 @@ function Login() {
         <LoadingSpinner />
       ) : (
         <section className="d-flex justify-content-center align-items-center m-5">
-          <div className="container" style={{ width: "400px" }}>
-            <h1 className="text-center mb-5">Login</h1>
+          <div className="container" style={{ width: "400px", border: "1px solid black", padding:"20px", borderRadius:"10px"}}>
+            <h1 className="text-center mb-5 text-primary">Login</h1>
             <div className="row d-flex justify-content-center align-items-center">
               <div className="row d-flex justify-content-center align-items-center">
                 <form onSubmit={handleLogin}>

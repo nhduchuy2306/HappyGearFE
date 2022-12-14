@@ -7,30 +7,6 @@ import CartItem from "./CartItem";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
-// const cart = [
-//   {
-//     quantity: "1",
-//     url: "https://www.nguyenkim.com/images/detailed/775/10051123-laptop-asus-vivobook-x515ea-ej1046w-i5-1135g7-1.jpg",
-//     name: "Acer",
-//     price: "33.00",
-//     total: "33.00",
-//   },
-//   {
-//     quantity: "1",
-//     url: "https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg",
-//     name: "Asus",
-//     price: "33.00",
-//     total: "33.00",
-//   },
-//   {
-//     quantity: "1",
-//     url: "https://cdn.tgdd.vn/Products/Images/44/285077/asus-vivobook-15x-oled-a1503za-i3-l1152w-600x600.jpg",
-//     name: "Asus",
-//     price: "40.00",
-//     total: "40.00",
-//   },
-// ];
-
 function Cart() {
 
   const [total, setTotal] = useState(0)

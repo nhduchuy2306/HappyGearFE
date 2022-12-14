@@ -1,5 +1,4 @@
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
-  font-size: 1rem;
   line-height: 2.15;
   padding-left: 0.75em;
   padding-right: 0.75em;
@@ -10,4 +9,8 @@
 .gradient-custom{
   margin-top:5px;
   margin-bottom: 5px;
+}
+.text-error{
+  margin: 5px 0 0 7px;
+  color: red;
 }
