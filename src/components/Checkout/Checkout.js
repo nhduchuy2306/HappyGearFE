@@ -37,7 +37,7 @@ function Checkout() {
 
         axios.post('http://localhost:8080/happygear/api/orders/create', {
             "cartItems": requestBody.slice(1),
-            "userName": "hongtran"
+            "userName": "hongtran" || window.localStorage.getItem("UserLogin")
         })
             .then((response) => {
                 if (response.status === 200 && response.data === 'success') {
@@ -115,7 +115,7 @@ function Checkout() {
                                         </div>
                                     </div>
                                     <div className="checkout__input__checkbox">
-                                        <label for="acc">
+                                        <label>
                                             Create an account?
                                             <input type="checkbox" id="acc" />
                                             <span className="checkmark"></span>
@@ -128,7 +128,7 @@ function Checkout() {
                                         <input type="text" />
                                     </div>
                                     <div className="checkout__input__checkbox">
-                                        <label for="diff-acc">
+                                        <label>
                                             Ship to a different address?
                                             <input type="checkbox" id="diff-acc" />
                                             <span className="checkmark"></span>
@@ -167,7 +167,7 @@ function Checkout() {
                                         <div className="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
                                         <div className="checkout__order__total">Total <span>$750.99</span></div>
                                         <div className="checkout__input__checkbox">
-                                            <label for="acc-or">
+                                            <label>
                                                 Create an account?
                                                 <input type="checkbox" id="acc-or" />
                                                 <span className="checkmark"></span>
@@ -176,14 +176,14 @@ function Checkout() {
                                         <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
                                             ut labore et dolore magna aliqua.</p>
                                         <div className="checkout__input__checkbox">
-                                            <label for="payment">
+                                            <label>
                                                 Check Payment
                                                 <input type="checkbox" id="payment" />
                                                 <span className="checkmark"></span>
                                             </label>
                                         </div>
                                         <div className="checkout__input__checkbox">
-                                            <label for="paypal">
+                                            <label>
                                                 Paypal
                                                 <input type="checkbox" id="paypal" />
                                                 <span className="checkmark"></span>

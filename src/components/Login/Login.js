@@ -59,7 +59,7 @@ function Login() {
     });
 
   return (
-    <>
+    <div>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -75,7 +75,7 @@ function Login() {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <section className="d-flex justify-content-center align-items-center m-5">
+        <section className="d-flex justify-content-center align-items-center p-5">
           <div className="container" style={{ width: "400px", border: "1px solid black", padding:"20px", borderRadius:"10px"}}>
             <h1 className="text-center mb-5 text-primary">Login</h1>
             <div className="row d-flex justify-content-center align-items-center">
@@ -181,7 +181,7 @@ function Login() {
           </div>
         </section>
       )}
-    </>
+    </div>
   );
 }
 

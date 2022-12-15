@@ -5,6 +5,14 @@ const productApi = {
         const url = '/products'
         return axiosClient.get(url, {params})
     },
+    getBestSeller(params){
+        const url = '/products/best-seller'
+        return axiosClient.get(url, {params})
+    },
+    getLatest(params){
+        const url = '/products/latest'
+        return axiosClient.get(url, {params})
+    },
     get(id){
         const url = `/products/${id}`
         return axiosClient.get(url);
