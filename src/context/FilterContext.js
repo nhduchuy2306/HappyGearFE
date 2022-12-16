@@ -6,7 +6,7 @@ const FilterContext = createContext();
 const FilterProvider = ({ children }) => {
   const [brandId, setBrandId] = useState(1);
   const [categoryId, setCategoryId] = useState(1);
-  const [price, setPrice] = useState([0, 20000000]);
+  const [price, setPrice] = useState([500000, 200000000]);
 
   return (
     <FilterContext.Provider

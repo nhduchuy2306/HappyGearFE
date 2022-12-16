@@ -13,6 +13,10 @@ const productApi = {
         const url = '/products/latest'
         return axiosClient.get(url, {params})
     },
+    getProductWithPage(params){
+        const url = '/products/page'
+        return axiosClient.get(url, {params})
+    },
     get(id){
         const url = `/products/${id}`
         return axiosClient.get(url);

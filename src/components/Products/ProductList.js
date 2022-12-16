@@ -1,41 +1,37 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Banner from "../../pages/Banner/Banner";
 import ProductItem from "./ProductItem";
 import BannerImg from "../../assets/2abcd1.jpg";
-import axios from "axios";
 import Filter from "../Filter/Filter";
 
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import productApi from './../../api/productApi';
+import { FilterContext } from "../../context/FilterContext";
 
 function ProductList() {
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState();
+
+  const { brandId, categoryId, price } = useContext(FilterContext)
+
   const handleChange = (event, value) => {
     setPage(value);
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/happygear/api/products/",{
-        params:{
-          p:page-1
-        }
-      })
-      .then((response) => {
+    async function fetchProduct() {
+      try {
+        const response = await productApi.getProductWithPage({ p: page - 1, b: brandId, c: categoryId, f: price[0], t: price[1] })
         setList(response.data[0]);
         setTotalPage(response.data[1]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
-      });
-  }, [page]);
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    fetchProduct();
+  }, [page, brandId, categoryId, price]);
 
   return (
     <>
@@ -55,9 +51,9 @@ function ProductList() {
             <div className="row">
               <ProductItem list={list} />
             </div>
-            <Stack spacing={2} sx={{display: 'flex', alignItems: 'center'}}>
+            <Stack spacing={2} sx={{ display: 'flex', alignItems: 'center' }}>
               <Pagination
-                count={totalPage}
+                count={totalPage || 1}
                 page={page}
                 onChange={handleChange}
               />
