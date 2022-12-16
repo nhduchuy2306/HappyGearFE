@@ -34,7 +34,7 @@ function ProductList() {
   }, [page, brandId, categoryId, price]);
 
   return (
-    <>
+    <div>
       <Banner image={BannerImg} name="Shopping" title="" />
       <section className="container py-5">
         <div className="row">
@@ -61,7 +61,7 @@ function ProductList() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
