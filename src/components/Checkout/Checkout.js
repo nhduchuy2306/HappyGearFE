@@ -33,8 +33,6 @@ function Checkout() {
             }
         })
 
-        console.log(requestBody)
-
         axios.post('http://localhost:8080/happygear/api/orders/create', {
             "cartItems": requestBody.slice(1),
             "userName": "hongtran" || window.localStorage.getItem("UserLogin")
@@ -42,8 +40,7 @@ function Checkout() {
             .then((response) => {
                 if (response.status === 200 && response.data === 'success') {
                     notify()
-                    setCart([{}])
-                    window.localStorage.setItem("localCart", JSON.stringify(cart))
+                    setCart([])
                 }
             })
             .catch((error) => console.log(error))
@@ -145,7 +142,7 @@ function Checkout() {
                                         <h4>Your Order</h4>
                                         <div className="checkout__order__products">Products <span>Total</span></div>
                                         <ul>
-                                            {cart.slice(1).map((item, index) => {
+                                            {cart.map((item, index) => {
                                                 return (
                                                     <li key={index}>
                                                         <p style={{

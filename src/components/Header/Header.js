@@ -15,7 +15,7 @@ function Header() {
     toast.success("Logout successfully!", {
       position: "top-right",
       autoClose: 1000,
-      hideProgressBar: true,
+      hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -127,7 +127,7 @@ function Header() {
               ></i>
               Cart
               <span className="badge bg-dark text-white ms-1 rounded-pill">
-                {cart.length > 0 ? cart.length-1:0}
+                {cart.length}
               </span>
             </button>
           </Link>

@@ -6,6 +6,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import axios from "axios";
 import { FilterContext } from "../../context/FilterContext";
+import formatPrice from './../../services/FormatPrice';
 
 function Filter() {
 
@@ -28,7 +29,7 @@ function Filter() {
         setCategory([...response.data]);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [category]);
 
   useEffect(() => {
     axios
@@ -37,16 +38,18 @@ function Filter() {
         setBrand([...response.data]);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [brand]);
 
   const handleClickCategory = (event, index, id) => {
     setSelectedCategoryIndex(index)
-    setCategoryId(id)
+    if(index === 0) setCategoryId(index)
+    else setCategoryId(id)
   }
 
   const handleClickBrand = (event, index, id) => {
     setSelectedBrandIndex(index)
-    setBrandId(id)
+    if(index === 0) setBrandId(index)
+    else setBrandId(id)
   }
 
   return (
@@ -56,12 +59,19 @@ function Filter() {
         <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
           <nav aria-label="main mailbox folders">
             <List>
+              <ListItem disablePadding>
+                <ListItemButton
+                  selected={selectedCategoryIndex === 0}
+                  onClick={(event) => handleClickCategory(event, 0, 0)}>
+                  All
+                </ListItemButton>
+              </ListItem>
               {category.map((c, index) => {
                 return (
                   <ListItem key={c?.categoryId} disablePadding>
                     <ListItemButton
-                      selected={selectedCategoryIndex === index}
-                      onClick={(event) => handleClickCategory(event, index, c?.categoryId)}>
+                      selected={selectedCategoryIndex === index+1}
+                      onClick={(event) => handleClickCategory(event, index+1, c?.categoryId)}>
                       {c?.categoryName}
                     </ListItemButton>
                   </ListItem>
@@ -76,12 +86,19 @@ function Filter() {
         <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
           <nav aria-label="main mailbox folders">
             <List>
+              <ListItem disablePadding>
+                <ListItemButton
+                  selected={selectedBrandIndex === 0}
+                  onClick={(event) => handleClickBrand(event, 0, 0)}>
+                  All
+                </ListItemButton>
+              </ListItem>
               {brand.map((b, index) => {
                 return (
                   <ListItem key={b?.brandId} disablePadding>
                     <ListItemButton
-                      selected={selectedBrandIndex === index}
-                      onClick={(event) => handleClickBrand(event, index, b?.brandId)}>
+                      selected={selectedBrandIndex === index+1}
+                      onClick={(event) => handleClickBrand(event, index+1, b?.brandId)}>
                       {b?.brandName}
                     </ListItemButton>
                   </ListItem>
@@ -107,7 +124,7 @@ function Filter() {
         </Box>
         <div>
           <p style={{ color: "red", fontWeight: "bold", fontSize: 20 }}>
-            <span>{price[0]} VNĐ</span> - <span>{price[1]} VNĐ</span>
+            <span>{formatPrice.VNDong(price[0])}</span> - <span>{formatPrice.VNDong(price[1])}</span>
           </p>
         </div>
       </div>

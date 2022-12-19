@@ -19,6 +19,7 @@
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
+    "react-comments-section": "^2.0.10",
     "react-data-table-component": "^7.5.3",
     "react-dom": "^18.2.0",
     "react-google-recaptcha": "^2.1.0",

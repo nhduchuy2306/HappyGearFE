@@ -4,8 +4,8 @@ import { useState } from "react";
 const FilterContext = createContext();
 
 const FilterProvider = ({ children }) => {
-  const [brandId, setBrandId] = useState(1);
-  const [categoryId, setCategoryId] = useState(1);
+  const [brandId, setBrandId] = useState(0);
+  const [categoryId, setCategoryId] = useState(0);
   const [price, setPrice] = useState([500000, 200000000]);
 
   return (

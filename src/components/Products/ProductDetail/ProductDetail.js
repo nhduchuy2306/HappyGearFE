@@ -7,7 +7,8 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Comment from "../../Comment/Comment";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import formatPrice from "../../../services/FormatPrice";
+import productApi from './../../../api/productApi';
 
 function ProductDetail() {
   const [count, setCount] = useState(1);
@@ -19,31 +20,37 @@ function ProductDetail() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8080/happygear/api/products/${id}`)
-      .then((response) => {
+    async function fetchProductById() {
+      try {
+        const response = await productApi.get(id);
         setPictureUrl(response.data.picture);
         setProductDetail(response.data);
-      })
-      .catch((err) => console.log(err));
-  },[id]);
+      } catch (error) {
+        console.log(error.message);
+      }
+
+    }
+    fetchProductById();
+  }, [id]);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8080/happygear/api/pictures/productPic/${id}`)
-      .then((response) => {
-        console.log(response.data);
+    async function fetchAllProductPicture() {
+      try {
+        const response = await productApi.getByProductPictureId(id);
         setListPicture([...response.data]);
-      })
-      .catch((err) => console.log(err));
-  },[id]);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    fetchAllProductPicture();
+  }, [id]);
 
   return (
     <>
       <Banner image={BannerImg} name="Product Detail" title="Product Detail" />
       <section className="product-details spad">
         <div className="container">
-        <Link to="/products" className="btn btn-primary mb-4"> &#8592; Continue Shopping</Link>
+          <Link to="/products" className="btn btn-primary mb-4"> &#8592; Continue Shopping</Link>
           <div className="row">
             <div className="col-lg-6 col-md-6">
               <div className="product__details__pic">
@@ -55,35 +62,35 @@ function ProductDetail() {
                     alt=""
                   />
                 </div>
-                {listPicture?.length>0?
-                <OwlCarousel
-                  className="owl-theme"
-                  loop
-                  margin={10}
-                  nav
-                  autoplay
-                  items={5}
-                >
-                  {listPicture?.map((pictureItem) => {
-                    return (
-                      <div
-                        key={pictureItem?.pictureId}
-                        className="item"
-                        style={{ cursor: "pointer" }}
-                        onClick={() => setPictureUrl(pictureItem?.pictureUrl)}
-                      >
-                        <img src={pictureItem?.pictureUrl} alt="" />
-                      </div>
-                    );
-                  })}
-                </OwlCarousel>:<div></div>}
+                {listPicture?.length > 0 ?
+                  <OwlCarousel
+                    className="owl-theme"
+                    loop
+                    margin={10}
+                    nav
+                    autoplay
+                    items={5}
+                  >
+                    {listPicture?.map((pictureItem) => {
+                      return (
+                        <div
+                          key={pictureItem?.pictureId}
+                          className="item"
+                          style={{ cursor: "pointer" }}
+                          onClick={() => setPictureUrl(pictureItem?.pictureUrl)}
+                        >
+                          <img src={pictureItem?.pictureUrl} alt="" />
+                        </div>
+                      );
+                    })}
+                  </OwlCarousel> : <div></div>}
               </div>
             </div>
             <div className="col-lg-6 col-md-6">
               <div className="product__details__text">
                 <h3>{productDetail?.productName}</h3>
                 <div className="product__details__price">
-                  {productDetail?.price} VNĐ
+                  {formatPrice.VNDong(productDetail?.price)}
                 </div>
                 <div className="product__details__quantity">
                   <div className="quantity">

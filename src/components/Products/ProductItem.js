@@ -5,6 +5,8 @@ import { CartContext } from "../../context/CartContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import formatPrice from "../../services/FormatPrice";
+
 function ProductItem({ list, number }) {
   const navigate = useNavigate();
 
@@ -13,7 +15,7 @@ function ProductItem({ list, number }) {
   const notify = () => toast.success('Add To Cart Successfully!', {
     position: "top-center",
     autoClose: 2000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -41,8 +43,6 @@ function ProductItem({ list, number }) {
     }
 
     notify()
-    window.localStorage.setItem("localCart",JSON.stringify(cart))
-    window.localStorage.setItem("localCart",JSON.stringify(cart))
   }
 
   return list?.map((e) => (
@@ -58,7 +58,7 @@ function ProductItem({ list, number }) {
           </div>
         </div>
         <div className="text-end" style={{ margin: "0 10px 10px 0", color: "red" }}>
-          <h5 className="fw-bolder">{e?.price} VNĐ</h5>
+          <h5 className="fw-bolder">{formatPrice.VNDong(e?.price)}</h5>
         </div>
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-center d-flex justify-content-between align-items-center">

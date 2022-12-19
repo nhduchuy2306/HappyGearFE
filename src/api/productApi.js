@@ -5,6 +5,14 @@ const productApi = {
         const url = '/products'
         return axiosClient.get(url, {params})
     },
+    getAllByName(params){
+        const url = '/products/search'
+        return axiosClient.get(url, {params})
+    },
+    getAllProductWithPage(params){
+        const url = '/products/'
+        return axiosClient.get(url, {params})
+    },
     getBestSeller(params){
         const url = '/products/best-seller'
         return axiosClient.get(url, {params})
@@ -33,7 +41,7 @@ const productApi = {
         const url = `/products/${id}`
         return axiosClient.delete(url);
     },
-    getByProductId(id){
+    getByProductPictureId(id){
         const url = `/pictures/productPic/${id}`
         return axiosClient.get(url);
     }

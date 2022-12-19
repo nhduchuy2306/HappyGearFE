@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Banner from "../../pages/Banner/Banner";
 import BannerImg from "../../assets/2abcd1.jpg";
 import "./Cart.scss";
@@ -6,17 +6,11 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import formatPrice from "../../services/FormatPrice";
 
 function Cart() {
 
-  const [total, setTotal] = useState(0)
-
-  const { cart } = useContext(CartContext)
-
-  const callbackTotal = (totalItem) => {
-    console.log(">>>>>>>>>>>>>>>> Total price in cart " + totalItem + total)
-    setTotal(parseInt(total + totalItem));
-  }
+  const { cart, total } = useContext(CartContext)
 
   return (
     <>
@@ -37,15 +31,14 @@ function Cart() {
                     </tr>
                   </thead>
                   <tbody>
-                    {cart.slice(1).map((data, index) => (
+                    {cart.map((data, index) => (
                       <CartItem
                         key={index}
-                        productId = {data.productId}
+                        productId={data.productId}
                         quantity={data.quantity}
                         url={data.picture}
                         name={data.productName}
                         price={data.price}
-                        callback={callbackTotal}
                       />
                     ))}
                   </tbody>
@@ -89,13 +82,13 @@ function Cart() {
                 <h5>Cart Total</h5>
                 <ul>
                   <li>
-                    Subtotal <span>{total}</span>
+                    Subtotal <span> {formatPrice.VNDong(total)}</span>
                   </li>
                   <li>
                     Tax <span>10%</span>
                   </li>
                   <li>
-                    Total <span>{total * 1.1}</span>
+                    Total <span>{formatPrice.VNDong(Math.round(total * 1.1))}</span>
                   </li>
                 </ul>
                 <Link to="/checkout" className="btn btn-info primary-btn">
